@@ -1,6 +1,7 @@
 @media (max-width: 425px) {
     .event {
         padding: 30px 30px;
+        max-width: 425px;
     }
     .event-image {
         position: relative;
@@ -55,6 +56,7 @@
         flex-direction: column;
         justify-content: space-evenly;
         height: 110px;
+        margin-top: 15px;
     }
     .event-description div {
         height: 60px;
