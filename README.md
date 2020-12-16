@@ -8,7 +8,11 @@ In the project directory, you can run:
 
 First run the server with:
 
+### npm install -g json-server
+
 ### `json-server --port 3001 --watch db.json`
+
+It's on port 3001 because all the request has been made to this endpoint
 
 Then run the app with:
 
