@@ -1,12 +1,17 @@
 import React from 'react'
 import "./event.css"
+import { useState, useEffect } from 'react';
 import { Actions } from '../Actions/Actions'
 import { Users } from '../Users/Users';
 
 export const Event = ({ eventData, bookings, userData, bookATicket, cancelBooking }) => {
 
+    const [windowWidth, setWindowWidth] = useState(undefined);
+
+
     const startDateTime = new Date(eventData.startAt);
     const endDateTime = new Date(eventData.endAt);
+    
 
     // Formatation de la date sous forme jour mois année et traduction en français
     const formatDate = (date) => ({
@@ -14,10 +19,6 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
         month: new Intl.DateTimeFormat('fr', { month: 'short' }).format(date),
         day: new Intl.DateTimeFormat('fr', { day: '2-digit' }).format(date)
     })
-
-    console.log(formatDate(startDateTime).day, formatDate(startDateTime).month, formatDate(startDateTime).year);
-
-    console.log(startDateTime.getMonth())
 
     // Ajout d'un "0" si les minutes sont inférieures à 10 pour éviter ex: 19h1 au lieu de 19h01
     const getMinutes = (date) => {
@@ -30,19 +31,33 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
 
 
     // Style de la div contenant l'image de l'event en background (dynamique)
-    const getEventImage = () => {
+    const getEventImage = (event) => {
         return {
-            backgroundImage: `url("${eventData.image.url}")`,
+            backgroundImage: `url("${event.image.url}")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
         }
     }
 
+    useEffect(() => {
+        const getInnerWidth = () => {
+            setWindowWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', getInnerWidth);
+        return () => {
+            window.removeEventListener('resize', getInnerWidth);
+            console.log(windowWidth);
+        }
+    }, [setWindowWidth, windowWidth])
+
     return (
         <div className="event">
+            {windowWidth > 768 &&
+                <h1>BIG SCREEN</h1>
+                }
             <div className="">
                 <div className="event-description-container">
-                    <div className="event-image" style={getEventImage()}>
+                    <div className="event-image" style={getEventImage(eventData)}>
                         <div className="event-date" >
                             <p>
                                 {
@@ -76,7 +91,7 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
                     <h3>Politique d’annulation et de remboursement</h3>
                     <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
                 </div>
-                <Users bookings={bookings}/>
+                <Users bookings={bookings} windowWidth={windowWidth}/>
             </div>
             <Actions eventData={eventData} userData={userData} bookATicket={bookATicket} bookings={bookings} cancelBooking={cancelBooking} />
         </div>

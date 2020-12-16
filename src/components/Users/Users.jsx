@@ -1,12 +1,18 @@
 import React from 'react';
 import './users.css';
 
-export const Users = ({ bookings }) => {
+export const Users = ({ bookings, windowWidth }) => {
 
     return (
         <div className="users-container">
             <h2>Liste des participants ({bookings.length})</h2>
             <div className="users-list">
+                {windowWidth > 768 &&
+                    <div className="users-column-title">
+                        <span>Salarié</span>
+                        <span>Quantité réservée</span>
+                    </div>
+                }
                 <ul>
                 {/* Si la réservation contient une image on affiche une <li> sinon une différente <li> */}
                 {bookings.map((booking) => (

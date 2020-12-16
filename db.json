@@ -99,18 +99,6 @@
       },
       "numberOfTickets": 1,
       "userId": 8
-    },
-    {
-      "user": {
-        "id": 9,
-        "firstName": "Macy",
-        "lastName": "Maurel",
-        "color": "#5b8c00",
-        "avatar": {}
-      },
-      "numberOfTickets": 1,
-      "userId": 9,
-      "id": 99
     }
   ],
   "event": {

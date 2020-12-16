@@ -8,12 +8,22 @@ function App() {
   const [events, setEvents] = useState([])
   const [bookings, setBookings] = useState([])
   const [userData, setUserData] = useState([])
+  // const [windowSize, setWindowSize] = useState({width: undefined, height: undefined});
+
+  
 
   // Traitement à faire une seule fois, au chargement de la page
   // On récupère les event (un seul) et les réservations (bookings) qu'on met dans les constantes
   // déclarés avant
   useEffect(() => {
+    
+
     const getDatas = () => {
+      // const windowSizeHandler = () => {
+      //   setWindowSize({width: window.innerWidth, height: window.innerHeight});
+      //   console.log(windowSize)
+      // }
+      // window.addEventListener('resize', () => {windowSizeHandler()})
       axios.get('http://localhost:3001/event', {
         headers: {
           'Content-type': 'application/json'
@@ -43,11 +53,12 @@ function App() {
           console.log(response.data)
           setUserData(response.data)
         })
+
       }
-    getDatas()
-    console.log(bookings)
-    console.log(events)
-    console.log(userData)
+    getDatas();
+    console.log(bookings);
+    console.log(events);
+    console.log(userData);
   }, [setEvents, setBookings, setUserData])
 
   // book a ticket function
