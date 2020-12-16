@@ -99,7 +99,7 @@
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.03);
         border-radius: 12px;
         width: 100%;
-        margin: 16px auto;
+        margin: 0 auto;
         padding: 16px;
         font-family: "SF Pro Display Light", sans-serif;
         font-size: 14px;
@@ -116,17 +116,18 @@
     .event {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        justify-content: space-between;
         margin: 72px;
     }
     .event-container {
+        margin-right: 16px;
         width: 70%;
     }
     .event-description-container {
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.03);
         border-radius: 12px;
         padding: 16px;
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         background-color: #FFFFFF;
     }

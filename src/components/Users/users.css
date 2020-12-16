@@ -1,6 +1,5 @@
 @media (max-width: 768px) {
     .users-container {
-        margin-top: 15px;
         padding-bottom: 120px;
     }
     .users-container h2 {
@@ -61,22 +60,17 @@
 }
 
 @media (min-width: 768px) {
-    .users-container {
-        margin-top: 15px;
-        /* padding-bottom: 120px; */
-    }
     .users-container h2 {
-        padding: 32px;
+        padding: 16px 0;
         font-size: 16px;
     }
     .users-list {
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.03);
+        box-shadow: 0px 2px 4px #00000008;
         border-radius: 12px;
         padding: 16px;
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         background-color: #FFFFFF;
-        margin-bottom: 50px;
         font-family: "SF Pro Display Light", sans-serif;
         font-size: 14px;
         line-height: 22px;
@@ -130,7 +124,6 @@
     }
     .users-container .users-list ul li div div span {
         margin: 0 auto;
-        /* font-size: 14px; */
         color: #FFFFFF;
     }
     .users-container .users-list ul li img {

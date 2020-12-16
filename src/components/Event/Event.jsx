@@ -39,6 +39,8 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
         }
     }
 
+    // Un useEffect pour récupérer la largeur de l'écran lorsque l'utilisateur resize celui-ci
+    // Cela permettra d'afficher ou ne pas afficher certains composants en fonction
     useEffect(() => {
         const getInnerWidth = () => {
             setWindowWidth(window.innerWidth);
