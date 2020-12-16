@@ -48,7 +48,6 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
         window.addEventListener('resize', getInnerWidth);
         return () => {
             window.removeEventListener('resize', getInnerWidth);
-            console.log(windowWidth);
         }
     }, [setWindowWidth, windowWidth])
 
@@ -86,6 +85,7 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
                     <p>{eventData.description}</p>
                 </div>
                 </div>
+                {/* Afficher si la largeur de la fenêtre est inférieur ou égale à 768 pixels (tablette & mobile) */}
                 {windowWidth <= 768 &&
                     <div className="event-cancel-policy">
                         <h3>Politique d’annulation et de remboursement</h3>
@@ -96,6 +96,7 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
             </div>
             <div className="side-actions-bar">
                 <Actions eventData={eventData} userData={userData} bookATicket={bookATicket} bookings={bookings} cancelBooking={cancelBooking} />
+                {/* Affichier si la largeur de la fenêtre est supérieur à 768 pixels (bureau) */}
                 {windowWidth > 768 &&
                     <div className="event-cancel-policy">
                         <h3>Politique d’annulation et de remboursement</h3>

@@ -7,6 +7,7 @@ export const Users = ({ bookings, windowWidth }) => {
         <div className="users-container">
             <h2>Liste des participants ({bookings.length})</h2>
             <div className="users-list">
+                {/* Affichier si la largeur de la fenêtre est supérieur 768 pixels */}
                 {windowWidth > 768 &&
                     <div className="users-column-title">
                         <span>Salarié</span>
