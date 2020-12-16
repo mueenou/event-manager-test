@@ -1,13 +1,9 @@
 import React from 'react'
 import "./event.css"
-import { useState, useEffect } from 'react';
 import { Actions } from '../Actions/Actions'
 import { Users } from '../Users/Users';
 
 export const Event = ({ eventData, bookings, userData, bookATicket, cancelBooking }) => {
-
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
 
     const startDateTime = new Date(eventData.startAt);
     const endDateTime = new Date(eventData.endAt);
@@ -38,18 +34,6 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
             backgroundPosition: 'center'
         }
     }
-
-    // Un useEffect pour récupérer la largeur de l'écran lorsque l'utilisateur resize celui-ci
-    // Cela permettra d'afficher ou ne pas afficher certains composants en fonction
-    useEffect(() => {
-        const getInnerWidth = () => {
-            setWindowWidth(window.innerWidth);
-        }
-        window.addEventListener('resize', getInnerWidth);
-        return () => {
-            window.removeEventListener('resize', getInnerWidth);
-        }
-    }, [setWindowWidth, windowWidth])
 
     return (
         <div className="event">
@@ -86,23 +70,19 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
                 </div>
                 </div>
                 {/* Afficher si la largeur de la fenêtre est inférieur ou égale à 768 pixels (tablette & mobile) */}
-                {windowWidth <= 768 &&
-                    <div className="event-cancel-policy">
-                        <h3>Politique d’annulation et de remboursement</h3>
-                        <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
-                    </div>
-                }
-                <Users bookings={bookings} windowWidth={windowWidth}/>
+                <div className="event-cancel-policy-mobile">
+                    <h3>Politique d’annulation et de remboursement</h3>
+                    <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
+                </div>
+                <Users bookings={bookings}/>
             </div>
             <div className="side-actions-bar">
                 <Actions eventData={eventData} userData={userData} bookATicket={bookATicket} bookings={bookings} cancelBooking={cancelBooking} />
                 {/* Affichier si la largeur de la fenêtre est supérieur à 768 pixels (bureau) */}
-                {windowWidth > 768 &&
-                    <div className="event-cancel-policy">
-                        <h3>Politique d’annulation et de remboursement</h3>
-                        <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
-                    </div>
-                }
+                <div className="event-cancel-policy-desktop">
+                    <h3>Politique d’annulation et de remboursement</h3>
+                    <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
+                </div>
             </div>
         </div>
     )

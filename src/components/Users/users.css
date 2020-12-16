@@ -18,6 +18,9 @@
         font-size: 14px;
         line-height: 22px;
     }
+    .users-list .users-column-title {
+        display: none;
+    }
     .users-container .users-list ul li {
         display: flex;
         align-items: center;

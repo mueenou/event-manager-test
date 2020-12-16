@@ -1,6 +1,6 @@
 import React from 'react';
 import './actions.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export const Actions = ({userData, bookATicket, bookings, cancelBooking, eventData}) => {
 

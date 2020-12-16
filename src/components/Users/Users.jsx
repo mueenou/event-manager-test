@@ -1,19 +1,17 @@
 import React from 'react';
 import './users.css';
 
-export const Users = ({ bookings, windowWidth }) => {
+export const Users = ({ bookings }) => {
 
     return (
         <div className="users-container">
             <h2>Liste des participants ({bookings.length})</h2>
             <div className="users-list">
                 {/* Affichier si la largeur de la fenêtre est supérieur 768 pixels */}
-                {windowWidth > 768 &&
-                    <div className="users-column-title">
-                        <span>Salarié</span>
-                        <span>Quantité réservée</span>
-                    </div>
-                }
+                <div className="users-column-title">
+                    <span>Salarié</span>
+                    <span>Quantité réservée</span>
+                </div>
                 <ul>
                 {/* Si la réservation contient une image on affiche une <li> sinon une différente <li> */}
                 {bookings.map((booking) => (
