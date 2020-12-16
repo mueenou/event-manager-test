@@ -107,6 +107,9 @@
         background-color: #FFFFFF;
         color: #8C8C8C;
     }
+    .event-cancel-policy h3 {
+        margin-bottom: 16px;
+    }
     .event-cancel-policy span {
         font-weight: bold;
     }
@@ -229,6 +232,9 @@
         line-height: 22px;
         background-color: #FFFFFF;
         color: #8C8C8C;
+    }
+    .event-cancel-policy h3 {
+        margin-bottom: 16px;
     }
     .event-cancel-policy span {
         font-weight: bold;
