@@ -1,11 +1,33 @@
-@media (max-width: 425px) {
+@media (max-width: 768px) {
+    .users-container {
+        margin-top: 15px;
+        padding-bottom: 120px;
+    }
+    .users-container h2 {
+        padding: 16px;
+    }
+    .users-list {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.03);
+        border-radius: 12px;
+        padding: 16px;
+        width: 90%;
+        margin: 0 auto;
+        background-color: #FFFFFF;
+        margin-bottom: 50px;
+        font-family: "SF Pro Display Light", sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+    }
     .users-container .users-list ul li {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 40px auto;
+        margin: auto;
+        margin-bottom: 30px;
     }
-    
+    .users-container .users-list ul li:last-child {
+        margin-bottom: 0px;
+    }
     .users-container .users-list ul li div {
         display: flex;
         flex-direction: row;
@@ -13,20 +35,21 @@
         justify-content: space-between;
         margin-right: 20px;
     }
-
-    .users-container .users-list ul li div span{
+    .users-container .users-list ul li div span {
         color: #595959;
     }
-
+    .users-container .users-list ul li div span .user-name {
+        width: 68px;
+    }
     .users-container .users-list ul li .user-ticket {
         color: #006D75;
+        font-weight: 600;
     }
-
     .users-container .users-list ul li div div span {
         margin: 0 auto;
+        /* font-size: 14px; */
         color: #FFFFFF;
     }
-
     .users-container .users-list ul li img {
         width: 40px;
         height: 40px;

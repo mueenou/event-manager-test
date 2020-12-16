@@ -1,4 +1,4 @@
-@media (max-width: 425px) {
+@media (max-width: 768px) {
     .actions-container {
         position: fixed;
         height: 148px;
@@ -6,27 +6,38 @@
         right: 0px;
         bottom: 0;
         padding: 16px;
-        background-color: #EBF7FF;
+        background-color: #FFFFFF;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
     .actions-container div {
-        width: 343px;
+        width: 95%;
         height: 60px;
         left: 16px;
         top: 16px;
+        font-family: "SF Pro Display", sans-serif;
+        font-size: 20px;
         background-color: #F8FDD9;
         margin: 0 auto;
         text-align: center;
         line-height: 60px;
         color: #567F0A;
     }
-    .actions-container button {
-        width: 343px;
+    #not-free-ticket {
+        font-size: 16px;
+    }
+    .actions-container div span {
+        font-weight: bold;
+    }
+    .actions-container .register-button {
+        width: 95%;
         height: 40px;
         left: 16px;
         top: 16px;
+        font-family: "SF Pro Display Light", sans-serif;
+        font-size: 16px;
+        font-weight: 200;
         background-color: #567F0A;
         border: none;
         margin: 0 auto;
@@ -34,5 +45,68 @@
         line-height: 40px;
         color: #FFFFFF;
         border-radius: 8px;
+    }
+    .actions-container .modify-button {
+        width: 95%;
+        height: 40px;
+        left: 16px;
+        top: 16px;
+        background-color: #FFFFFF;
+        border: 1px solid red;
+        margin: 0 auto;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: "SF Pro Display Light", sans-serif;
+        text-align: center;
+        line-height: 40px;
+        color: red;
+        border-radius: 8px;
+    }
+    .actions-container .register-button:hover {
+        cursor: pointer;
+        background-color: #456608;
+    }
+    .actions-container .modify-button:hover {
+        cursor: pointer;
+        background-color: #FAFAFB;
+    }
+    .modify-buttons-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 95%;
+        height: 40px;
+        left: 16px;
+        top: 16px;
+        font-family: "SF Pro Display Light", sans-serif;
+        font-size: 16px;
+        font-weight: 200;
+        border: none;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 40px;
+        color: #FFFFFF;
+        border-radius: 8px;
+    }
+    .modify-buttons-container button {
+        width: 95%;
+        height: 40px;
+        left: 16px;
+        top: 16px;
+        background-color: rgb(255, 0, 0);
+        border: none;
+        margin: 0 auto;
+        text-align: center;
+        font-family: "SF Pro Display Light", sans-serif;
+        font-size: 16px;
+        line-height: 40px;
+        color: #FFFFFF;
+        border-radius: 8px;
+    }
+    .modify-buttons-container button:hover {
+        cursor: pointer;
+        filter: grayscale(0.3);
     }
 }
