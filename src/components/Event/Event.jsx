@@ -6,7 +6,7 @@ import { Users } from '../Users/Users';
 
 export const Event = ({ eventData, bookings, userData, bookATicket, cancelBooking }) => {
 
-    const [windowWidth, setWindowWidth] = useState(undefined);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 
     const startDateTime = new Date(eventData.startAt);
@@ -52,10 +52,7 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
 
     return (
         <div className="event">
-            {windowWidth > 768 &&
-                <h1>BIG SCREEN</h1>
-                }
-            <div className="">
+            <div className="event-container">
                 <div className="event-description-container">
                     <div className="event-image" style={getEventImage(eventData)}>
                         <div className="event-date" >
@@ -87,13 +84,23 @@ export const Event = ({ eventData, bookings, userData, bookATicket, cancelBookin
                     <p>{eventData.description}</p>
                 </div>
                 </div>
-                <div className="event-cancel-policy">
-                    <h3>Politique d’annulation et de remboursement</h3>
-                    <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
-                </div>
+                {windowWidth <= 768 &&
+                    <div className="event-cancel-policy">
+                        <h3>Politique d’annulation et de remboursement</h3>
+                        <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
+                    </div>
+                }
                 <Users bookings={bookings} windowWidth={windowWidth}/>
             </div>
-            <Actions eventData={eventData} userData={userData} bookATicket={bookATicket} bookings={bookings} cancelBooking={cancelBooking} />
+            <div className="side-actions-bar">
+                <Actions eventData={eventData} userData={userData} bookATicket={bookATicket} bookings={bookings} cancelBooking={cancelBooking} />
+                {windowWidth > 768 &&
+                    <div className="event-cancel-policy">
+                        <h3>Politique d’annulation et de remboursement</h3>
+                        <p>Les annulations et remboursements peuvent s’effectuer jusqu’à la date de clôture des inscriptions soit jusqu’au <span>{formatDate(endDateTime).day} {formatDate(endDateTime).month} {formatDate(endDateTime).year}</span>.</p>
+                    </div>
+                }
+            </div>
         </div>
     )
 }
