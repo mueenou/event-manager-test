@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 First run the server with:
 
-### npm install -g json-server
+### `npm install -g json-server`
 
 ### `json-server --port 3001 --watch db.json`
 
