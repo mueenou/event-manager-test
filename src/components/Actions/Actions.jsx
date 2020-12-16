@@ -20,7 +20,7 @@ export const Actions = ({userData, bookATicket, bookings, cancelBooking, eventDa
         // Ternaire pour faire le test
         return foundBooking ?
         <>
-            <div id="not-free-ticket">J'y vais ! <span>({foundBooking.numberOfTickets} place réservée)</span></div>
+            <div id="not-free-ticket"> &#127881; J'y vais ! <span>({foundBooking.numberOfTickets} place réservée)</span></div>
             {!isModifying ? <button className="modify-button" onClick={() => setIsModifying(true) }>Modifier ma réservation</button> :
                 <div className="modify-buttons-container">
                     <button onClick={() => cancelHandler(foundBooking)}>Annuler la réservation</button>
